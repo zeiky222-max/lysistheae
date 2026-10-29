@@ -1,0 +1,107 @@
+:root {
+  --ink: #ffffff;
+  --icon: #335fff;
+  --icon-ink: #ffffff;
+  --panel: #393b3d;
+  --green: #00b06f;
+  --green-hover: #00c97e;
+}
+
+* { box-sizing: border-box; }
+
+html, body { height: 100%; margin: 0; }
+
+/* Roblox look: blue sky with the classic grey studded baseplate */
+body {
+  color: var(--ink);
+  font-family: "Builder Sans", "Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(#4aa8f0 0%, #9fd6ff 60%, #cfeaff 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 38vh;
+  background-color: #a3a2a5;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, .35) 0 6px, rgba(0, 0, 0, .12) 7px, transparent 8px);
+  background-size: 44px 44px;
+  background-position: center top;
+  border-top: 6px solid #8d8c8f;
+  z-index: 0;
+}
+
+.hub {
+  position: relative;
+  z-index: 1;
+  width: min(92vw, 320px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.icon-btn {
+  width: 96px;
+  height: 96px;
+  border: 0;
+  border-radius: 26px;
+  background: var(--icon);
+  color: var(--icon-ink);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.icon-btn:focus-visible { outline: 3px solid #ffffff; outline-offset: 4px; }
+
+.icon-btn svg { width: 44px; height: 44px; transition: transform .3s ease; }
+.hub.open .icon-btn svg { transform: rotate(45deg); }
+
+.hint { margin: 0; font-size: .95rem; color: #0b2a4a; }
+
+.panel {
+  width: 100%;
+  padding: 6px;
+  background: var(--panel);
+  border-radius: 16px;
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  visibility: hidden;
+  transition: grid-template-rows .3s ease, opacity .2s ease, visibility 0s .3s;
+}
+
+.hub.open .panel {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  visibility: visible;
+  transition: grid-template-rows .3s ease, opacity .2s ease;
+}
+
+.panel-inner {
+  overflow: hidden;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.panel a {
+  display: block;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: var(--green);
+  color: #ffffff;
+  text-align: center;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.panel a:hover, .panel a:focus-visible { background: var(--green-hover); outline: none; }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }

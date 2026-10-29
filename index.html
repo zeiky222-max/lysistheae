@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Roblox Community</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="https://pyscript.net/releases/2024.11.1/core.js"></script>
+</head>
+<body>
+  <main class="hub" id="hub">
+    <button class="icon-btn" id="icon-btn" aria-expanded="false" aria-controls="panel" aria-label="Open links">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path fill-rule="evenodd" d="M5.2 3.1 20.9 5.2 18.8 20.9 3.1 18.8Z M10.2 10 14 10.2 13.8 14 10 13.8Z"/>
+      </svg>
+    </button>
+    <p class="hint">Tap the icon</p>
+    <nav class="panel" id="panel" aria-label="Links">
+      <!-- Links are added by main.py. Edit the LINKS list there. -->
+      <div class="panel-inner" id="links"></div>
+    </nav>
+  </main>
+
+  <script type="py" src="./main.py"></script>
+</body>
+</html>
